@@ -1,0 +1,27 @@
+<!-- {% for each in items %} {{each}} {% endfor %}
+
+<h1>this is ok</h1> -->
+
+<!-- item_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Items List</title>
+</head>
+
+<body>
+    <h1>Items List</h1>
+
+    <!-- Loop through each item and display it -->
+    <ul>
+        {% for each in items %}
+        <li>{{ each }}</li>
+        <!-- Display each item inside a list item -->
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
