@@ -1,0 +1,21 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="min-h-screen flex flex-col">
+    <div class="flex flex-col md:flex-row justify-center items-center p-8 space-y-8 md:space-y-0 md:space-x-8">
+        <div class="flex-shrink-0 w-full md:w-1/2">
+            <img src="{{ item_one.item_image }}" alt="{{ item_one.item_name }}" class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+        <div class="w-full md:w-1/2 text-center md:text-left">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ item_one.item_name }}</h2>
+            <p class="text-lg text-gray-600 mb-4">{{ item_one.item_desc }}</p>
+            <p class="text-xl font-semibold text-blue-600 mb-4">₹ {{ item_one.item_price }}</p>
+            <div class="flex justify-center md:justify-start space-x-4 mt-6">
+
+                <a href="{% url 'update' item_one.id %}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold transition duration-300">Edit</a>
+                <a href="{% url 'delete' item_one.id %}" onclick="return confirm('Are you sure?')" class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-md font-semibold transition duration-300">Delete</a>
+
+                <a href="{% url 'index' %}" class="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded-md font-semibold transition duration-300">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

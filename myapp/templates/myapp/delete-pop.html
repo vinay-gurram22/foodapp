@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %} {% block content %}
+
+<h2 class="text-2xl font-bold mb-4">Are you sure you want to delete "{{ item_one.item_name }}"?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded">
+        Yes, Delete
+    </button>
+
+    <a href="{% url 'detail' item_one.id %}" class="bg-gray-500 text-white px-4 py-2 rounded">
+        Cancel
+    </a>
+</form>
+
+{% endblock %}

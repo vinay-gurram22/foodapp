@@ -1,27 +1,23 @@
-<!-- {% for each in items %} {{each}} {% endfor %}
-
-<h1>this is ok</h1> -->
-
-<!-- item_list.html -->
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Items List</title>
-</head>
-
-<body>
-    <h1>Items List</h1>
-
-    <!-- Loop through each item and display it -->
-    <ul>
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container mx-auto p-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {% for each in items %}
-        <li>{{ each }}</li>
-        <!-- Display each item inside a list item -->
+        <div class="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center transition-transform transform hover:scale-105 hover:shadow-2xl hover:cursor-pointer">
+            <!-- Image -->
+            <img src="{{ each.item_image }}" alt="{{ each.item_name }}" class="w-full h-48 object-cover rounded-md mb-4" />
+
+            <!-- Item Name and View Details Button -->
+            <div class="flex justify-between items-center w-full">
+                <!-- Item Name on the Left -->
+                <p class="text-lg font-semibold text-gray-800">{{ each.item_name }}</p>
+
+                <!-- View Details Button on the Right -->
+                <a href="{% url 'detail' each.id %}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-semibold text-sm transition duration-300">
+                    View 
+                </a>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
-
-</body>
-
-</html>
+    </div>
+</div>
+{% endblock %}
