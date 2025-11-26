@@ -1,0 +1,75 @@
+<!-- <form method='post'>
+    {% csrf_token %}
+    <h2>Are you sure for delete ?</h2>
+    <button type="submit">Delete</button>
+</form> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirm Delete</title>
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 380px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        h2 {
+            margin-bottom: 25px;
+        }
+        
+        .btn-danger {
+            background: #d9534f;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .btn-danger:hover {
+            background: #c9302c;
+        }
+        
+        .btn-cancel {
+            background: #6c757d;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        
+        .btn-cancel:hover {
+            background: #5a6268;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Are you sure you want to delete?</h2>
+
+            <button class="btn-danger" type="submit">Yes, Delete</button>
+            <a href="{% url 'profile' %}" class="btn-cancel">Cancel</a>
+        </form>
+    </div>
+
+</body>
+
+</html>

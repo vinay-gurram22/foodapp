@@ -1,16 +1,23 @@
 <div class="profile-container">
 
     <div class="profile-card">
+
         <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img">
 
         <h2 class="profile-name">{{ user.username }}</h2>
-
         <p class="profile-email">{{ user.email }}</p>
 
-        <a href="" class="edit-btn">Edit Profile</a>
+        <div class="btn-group">
+            <a href="{% url 'editprofile' %}" class="btn blue">Edit</a>
+            <a href="{% url 'changepswd' %}" class="btn yellow">Change Password</a>
+            <a href="{% url 'deleteprofile' %}" class="btn red">Delete</a>
+            <a href="{% url 'index' %}" class="btn grey">Back</a>
+        </div>
+
     </div>
 
 </div>
+
 
 <style>
     .profile-container {
@@ -21,8 +28,8 @@
     
     .profile-card {
         background: #ffffff;
-        width: 350px;
-        padding: 30px;
+        width: 380px;
+        padding: 35px;
         border-radius: 15px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         text-align: center;
@@ -30,8 +37,8 @@
     }
     
     .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 130px;
+        height: 130px;
         object-fit: cover;
         border-radius: 50%;
         border: 4px solid #3498db;
@@ -41,27 +48,66 @@
     .profile-name {
         font-size: 26px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     
     .profile-email {
         font-size: 16px;
         color: #555;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
+    /* Buttons Container */
     
-    .edit-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background: #3498db;
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 20px;
+    }
+    /* Button Base Style */
+    
+    .btn {
+        padding: 12px 20px;
         color: #fff;
         text-decoration: none;
-        border-radius: 8px;
         font-size: 16px;
+        border-radius: 8px;
         transition: 0.3s ease;
+        text-align: center;
+        font-weight: bold;
+    }
+    /* Different Button Colors */
+    
+    .btn.blue {
+        background: #3498db;
     }
     
-    .edit-btn:hover {
+    .btn.blue:hover {
         background: #217dbb;
+    }
+    
+    .btn.yellow {
+        background: #f1c40f;
+        color: #000;
+    }
+    
+    .btn.yellow:hover {
+        background: #d4ac0d;
+    }
+    
+    .btn.red {
+        background: #e74c3c;
+    }
+    
+    .btn.red:hover {
+        background: #c0392b;
+    }
+    
+    .btn.grey {
+        background: #7f8c8d;
+    }
+    
+    .btn.grey:hover {
+        background: #626e70;
     }
 </style>
